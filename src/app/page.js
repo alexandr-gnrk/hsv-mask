@@ -6,7 +6,7 @@ import { useRef, useState, useEffect, useCallback } from "react";
 
 export default function Home() {
   // State initialization
-  const initialHsvValues = { h: [0, 180], s: [0, 255], v: [0, 255] };
+  const initialHsvValues = { h: [73, 151], s: [106, 255], v: [22, 255] };
   const imagePreviewRef = useRef(null);
   const [originalImage, setOriginalImage] = useState(null);
   const [hsvValues, setHsvValues] = useState(initialHsvValues);
@@ -14,6 +14,11 @@ export default function Home() {
 
   // OpenCV initialization
   useEffect(() => {
+    const img = new Image();
+    img.src = 'hsv-mask/sample.jpg';
+    img.onload = () => {
+      setOriginalImage(img);
+    };
     if (window.cv) {
       setCvReady(true);
     } else {
@@ -91,7 +96,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen bg-black text-white">
       <div className="flex-1 p-6 w-3/4 h-screen">
-        <ImagePreview ref={imagePreviewRef} onChange={onImageChange} />
+        <ImagePreview ref={imagePreviewRef} initialImage={originalImage} onChange={onImageChange} />
       </div>
       <div className="w-1/4 flex flex-col p-8 border-l border-gray-800 bg-gray-900 shadow-lg">
         <h1 className="text-4xl font-bold text-center mb-8 text-white">HSV Color Mask</h1>

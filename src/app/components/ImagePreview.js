@@ -1,15 +1,21 @@
 'use client'
-import React, { useState, forwardRef, useImperativeHandle } from 'react';
+import React, { useState, forwardRef, useImperativeHandle, useEffect } from 'react';
 
-export const ImagePreview = forwardRef(({ onChange, onImageLoad }, ref) => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [previewImage, setPreviewImage] = useState(null);
+export const ImagePreview = forwardRef(({ initialImage, onChange, onImageLoad }, ref) => {
+  const [selectedImage, setSelectedImage] = useState(initialImage || null);
+  const [previewImage, setPreviewImage] = useState(initialImage || null);
 
   useImperativeHandle(ref, () => ({
     updatePreview: (newPreviewUrl) => {
       setPreviewImage(newPreviewUrl);
     }
   }));
+
+  useEffect(() => {
+    if (initialImage) {
+      setSelectedImage(initialImage.src);
+    }
+  }, [initialImage]);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];

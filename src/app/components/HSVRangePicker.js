@@ -70,6 +70,8 @@ const HSVRangePicker = ({ onChange, initialValues, rangeType = 'opencv' }) => {
           componentName="Hue" 
           min={limits.h[0]} 
           max={limits.h[1]} 
+          initialMin={initialValues?.h[0]}
+          initialMax={initialValues?.h[1]}
           onChange={handleHChange}
         />
       </div>
@@ -79,6 +81,8 @@ const HSVRangePicker = ({ onChange, initialValues, rangeType = 'opencv' }) => {
           componentName="Saturation" 
           min={limits.s[0]} 
           max={limits.s[1]} 
+          initialMin={initialValues?.s[0]}
+          initialMax={initialValues?.s[1]}
           onChange={handleSChange}
         />
       </div>
@@ -88,6 +92,8 @@ const HSVRangePicker = ({ onChange, initialValues, rangeType = 'opencv' }) => {
           componentName="Value" 
           min={limits.v[0]} 
           max={limits.v[1]} 
+          initialMin={initialValues?.v[0]}
+          initialMax={initialValues?.v[1]}
           onChange={handleVChange}
         />
       </div>
