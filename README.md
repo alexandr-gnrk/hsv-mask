@@ -45,7 +45,7 @@ The tool allows you to:
    npm run dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+4. Open [http://localhost:3000/hsv-mask](http://localhost:3000/hsv-mask) in your browser
 
 ## How to Use
 
