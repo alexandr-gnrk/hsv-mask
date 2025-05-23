@@ -2,7 +2,7 @@
 
 Simple web-based tool for creating HSV (Hue, Saturation, Value) color masks for image processing. Built with Next.js and OpenCV.js.
 
-Try [Live Demo](https://username.github.io/hsv-mask)
+Try [Live Demo](https://alexandr-gnrk.github.io/hsv-mask)
 
 ![HSV Color Mask Tool](./public/preview.png)
 
@@ -31,7 +31,7 @@ The tool allows you to:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/hsv-mask.git
+   git clone https://github.com/alexandr-gnrk/hsv-mask.git
    cd hsv-mask
    ```
 

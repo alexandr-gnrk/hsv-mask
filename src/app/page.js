@@ -30,11 +30,7 @@ export default function Home() {
   useEffect(() => {
     if (cvReady) {
       const img = new Image();
-      if (process.env.NODE_ENV === 'development') {
-        img.src = 'hsv-mask/sample.jpg';
-      } else {
-        img.src = '/sample.jpg';
-      }
+      img.src = 'hsv-mask/sample.jpg';
       img.onload = () => {
         setOriginalImage(img);
       };
