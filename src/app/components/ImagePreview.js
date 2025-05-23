@@ -2,8 +2,8 @@
 import React, { useState, forwardRef, useImperativeHandle, useEffect } from 'react';
 
 export const ImagePreview = forwardRef(({ initialImage, onChange, onImageLoad }, ref) => {
-  const [selectedImage, setSelectedImage] = useState(initialImage || null);
-  const [previewImage, setPreviewImage] = useState(initialImage || null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
 
   useImperativeHandle(ref, () => ({
     updatePreview: (newPreviewUrl) => {
@@ -13,7 +13,9 @@ export const ImagePreview = forwardRef(({ initialImage, onChange, onImageLoad },
 
   useEffect(() => {
     if (initialImage) {
-      setSelectedImage(initialImage.src);
+      setSelectedImage(typeof initialImage === 'string' 
+        ? initialImage 
+        : initialImage.src);
     }
   }, [initialImage]);
 
